@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- root element, all properties must be under this element -->
+<wsoft> 
+    <adminConsole> 
+        <!-- Disable either port by setting the value to -1 -->  
+        <port>9090</port>  
+        <securePort>9091</securePort> 
+    </adminConsole>  
+    <locale>en</locale>  
+    <provider> 
+        <auth/>  
+        <user/> 
+    </provider>  
+    <jdbcAuthProvider/>  
+    <jdbcProvider> 
+        <connectionString>jdbc:mysql://localhost:3306/open393?user=root&amp;password=</connectionString> 
+    </jdbcProvider>  
+    <jdbcUserProvider> 
+        <loadUserSQL>SELECT username,user_jid FROM account WHERE username=?</loadUserSQL>  
+        <nameField>nickname</nameField> 
+    </jdbcUserProvider>  
+    <connectionProvider> 
+        <className>com.wsoft.boom.database.DefaultConnectionProvider</className> 
+    </connectionProvider>  
+    <database> 
+        <defaultProvider> 
+            <driver>com.mysql.jdbc.Driver</driver>  
+            <serverURL>jdbc:mysql://localhost:3306/open393</serverURL>  
+            <username>root</username>  
+            <password/>  
+            <testSQL>select 1</testSQL>  
+            <testBeforeUse>true</testBeforeUse>  
+            <testAfterUse>true</testAfterUse>  
+            <minConnections>5</minConnections>  
+            <maxConnections>25</maxConnections>  
+            <connectionTimeout>1.0</connectionTimeout> 
+        </defaultProvider> 
+    </database>  
+    <setup>true</setup>
+    <logback>
+        <file>etc/logback.xml</file>
+    </logback>
+</wsoft>
